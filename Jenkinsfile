@@ -41,8 +41,9 @@ node('docker_pt') {
     step([$class: 'ArtifactArchiver', artifacts: '**/*.jtl'])
   }
   stage ('Promote build in Artifactory'){
-    withCredentials([usernameColonPassword(credentialsId:'artifactory-account', variable: 'credentials')]) {
-        sh 'curl -u${credentials} -X PUT "http://172.20.0.2:8081/artifactory/api/storage/example-project/${BUILD_NUMBER}/spring-boot-maven-example-0.0.1-SNAPSHOT.war?properties=Performance-Tested=Yes"';
+    withCredentials([usernameColonPassword(credentialsId:
+      'artifactory-account', variable: 'credentials')]) {
+        sh 'curl -u${credentials} -X PUT "http://172.20.0.2:8081/artifactory/api/storage/example-project/${BUILD_NUMBER}/hello-0.0.1.war?properties=Performance-Tested=Yes"';
       }
   }
 }
