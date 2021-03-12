@@ -24,7 +24,8 @@ node('docker') {
     server.upload(uploadSpec)
   }
   stash includes: 'target/spring-boot-maven-example-0.0.1-SNAPSHOT.war,src/pt/Hello_World_Test_Plan.jmx', name: 'binary'
-  node('docker_pt') {
+}
+node('docker_pt') {
   stage ('Start Tomcat'){
     sh '''cd /home/jenkins/tomcat/bin
     ./startup.sh''';
