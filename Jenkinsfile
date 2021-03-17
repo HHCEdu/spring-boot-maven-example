@@ -46,3 +46,7 @@ node('docker_pt') {
       }
   }
 }
+
+node ('production') {
+  echo "ok production"
+}
