@@ -46,9 +46,3 @@ node('docker_pt') {
       }
   }
 }
-
-node ('production') {
-  stage ('Deploy to Prod') {
-    echo "ok production"
-  }
-}
